@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import itertools
 import random
 
+# See main function at bottom, along with documentation for how to use.
 
 def iterate_forward(f, x, delta):
     dx = delta * f(x)
@@ -137,25 +138,25 @@ def plot_trajectories_grid(f, R = 5, colored = True, cords = [np.zeros(2)], void
     return True
 
 
-def run():
-    # Define a function taking 2 by 1 vector as input, ex:
+def main():
+    #f: function taking 2 by 1 vector as input, ex:
     def f(z):
         (x, y) = z
         x_dot = np.sin(x * y)
         y_dot = np.cos(x * y)
         return np.asarray([x_dot, y_dot])
 
-
     # R: float valued, gives range over which you are plotting, ex : R = 10 will plot in [-10,10]x[-10x10]
     # colored: bool, if true, will color plot according to direction of movement,
     # values start at blue, go to red
     # cords: list of 2 vectors. Gives points at which phase plane trajectories are intialiazed
     # voids_eps: float, governs density of plot. smaller void eps -> greater plot density, more trajectory lines
-
+    
+    
     plot_trajectories_grid(f, R=5, colored=True, cords=[np.zeros(2)], void_eps=.25)
 
 
     pass
 
 if __name__ == '__main__':
-    run()
+    main()
