@@ -99,7 +99,7 @@ def get_trajectory_vals(trajectory, void_eps):
     return unique_list([str(np.asarray(np.rint((np.asarray(cords / void_eps))),int)).replace("  ", " ") for cords in trajectory])
 
 
-def plot_trajectories_grid(f, R = 5, colored = False, cords = [np.zeros(2)], void_eps = .5):
+def plot_trajectories_grid(f, R = 5, colored = True, cords = [np.zeros(2)], void_eps = .5):
     plot_axes(R)
     plt.xlim(-R,R)
     plt.ylim(-R, R)
@@ -136,12 +136,13 @@ def plot_trajectories_grid(f, R = 5, colored = False, cords = [np.zeros(2)], voi
     plt.show()
     return True
 
+
 def run():
     # Define a function taking 2 by 1 vector as input, ex:
     def f(z):
         (x, y) = z
         x_dot = np.sin(x * y)
-        y_dot = np.sin(x * y)
+        y_dot = np.cos(x * y)
         return np.asarray([x_dot, y_dot])
 
 
@@ -151,7 +152,7 @@ def run():
     # cords: list of 2 vectors. Gives points at which phase plane trajectories are intialiazed
     # voids_eps: float, governs density of plot. smaller void eps -> greater plot density, more trajectory lines
 
-    plot_trajectories_grid(f, R=5, colored=False, cords=[np.zeros(2)], void_eps=.5)
+    plot_trajectories_grid(f, R=5, colored=True, cords=[np.zeros(2)], void_eps=.25)
 
 
     pass
