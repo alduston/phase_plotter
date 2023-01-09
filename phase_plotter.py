@@ -145,15 +145,15 @@ def main():
         x_dot = np.sin(x * y)
         y_dot = np.cos(x * y)
         return np.asarray([x_dot, y_dot])
-
+    
     # R: float valued, gives range over which you are plotting, ex : R = 10 will plot in [-10,10]x[-10x10]
     # colored: bool, if true, will color plot according to direction of movement,
     # values start at blue, go to red
     # cords: list of 2 vectors. Gives points at which phase plane trajectories are intialiazed
     # voids_eps: float, governs density of plot. smaller void eps -> greater plot density, more trajectory lines
     
-    
     plot_trajectories_grid(f, R=5, colored=True, cords=[np.zeros(2)], void_eps=.25)
+    # See example_plot.png for result
 
 
     pass
