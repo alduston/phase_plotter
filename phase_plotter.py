@@ -139,12 +139,17 @@ def plot_trajectories_grid(f, R = 5, colored = True, cords = [np.zeros(2)], void
 
 
 def main():
-    #f: function taking 2 by 1 vector as input, ex:
+    #f: function taking 2 by 1 vector as input, ex_1:
     def f(z):
         (x, y) = z
         x_dot = np.sin(x * y)
         y_dot = np.cos(x * y)
         return np.asarray([x_dot, y_dot])
+    
+    #ex2: This should return an answer faster than f
+    def g(z):
+         A = np.asarray([[-1,-1], [0,-.25]])
+        return A @ np.asarray(z)
     
     # R: float valued, gives range over which you are plotting, ex : R = 10 will plot in [-10,10]x[-10x10]
     # colored: bool, if true, will color plot according to direction of movement,
@@ -152,8 +157,8 @@ def main():
     # cords: list of 2 vectors. Gives points at which phase plane trajectories are intialiazed
     # voids_eps: float, governs density of plot. smaller void eps -> greater plot density, more trajectory lines
     
-    plot_trajectories_grid(f, R=5, colored=True, cords=[np.zeros(2)], void_eps=.25)
-    # See example_plot.png for result
+    plot_trajectories_grid(f, R=5, colored=True, cords=[np.zeros(2)], void_eps=.5)
+    # See example_plot.png for result of f
 
 
     pass
